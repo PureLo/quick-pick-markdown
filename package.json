@@ -1,0 +1,62 @@
+{
+  "name": "quick-pick-markdown-snippets",
+  "displayName": "Quick Pick Markdown Snippets",
+  "description": "Insert markdown snippets with / commands like Notion for VSCode.",
+  "version": "0.0.1",
+  "publisher": "Lo",
+  "engines": {
+    "vscode": ">=1.70.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:quickPick.insertTable",
+    "onCommand:quickPick.insertCodeBlock",
+    "onCommand:quickPick.insertTodoList",
+    "onCommand:quickPick.insertOrderedList",
+    "onCommand:quickPick.insertUnorderedList",
+    "onCommand:quickPick.insertCalendar",
+    "onCommand:quickPick.insertHeader",
+    "onCommand:quickPick.insertImage",
+    "onCommand:quickPick.insertLink",
+    "onCommand:quickPick.insertHighlightBlock",
+    "onCommand:quickPick.insertFile",
+    "onCommand:quickPick.insertSubfield",
+    "onCommand:quickPick.showQuickPickMenu"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "quickPick.insertTable", "title": "QuickPick: Insert Markdown Table" },
+      { "command": "quickPick.insertCodeBlock", "title": "QuickPick: Insert Code Block" },
+      { "command": "quickPick.insertTodoList", "title": "QuickPick: Insert TODO List" },
+      { "command": "quickPick.insertOrderedList", "title": "QuickPick: Insert Ordered List" },
+      { "command": "quickPick.insertUnorderedList", "title": "QuickPick: Insert Unordered List" },
+      { "command": "quickPick.insertCalendar", "title": "QuickPick: Insert Calendar" },
+      { "command": "quickPick.insertHeader", "title": "QuickPick: Insert Header (h1-h5)" },
+      { "command": "quickPick.insertImage", "title": "QuickPick: Insert Image" },
+      { "command": "quickPick.insertLink", "title": "QuickPick: Insert Link" },
+      { "command": "quickPick.insertHighlightBlock", "title": "QuickPick: Insert Highlight Block" },
+      { "command": "quickPick.insertFile", "title": "QuickPick: Insert File" },
+      { "command": "quickPick.insertSubfield", "title": "QuickPick: Insert Subfield" },
+      { "command": "quickPick.showQuickPickMenu", "title": "QuickPick: Show Markdown Snippet Menu" }
+    ],
+    "keybindings": [
+      {
+        "key": "ctrl+alt+k",
+        "command": "quickPick.showQuickPickMenu",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "typescript": "^4.8.0",
+    "vsce": "^2.15.0"
+  }
+} 
